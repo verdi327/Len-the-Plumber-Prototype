@@ -1,0 +1,26 @@
+<div id="container">
+  <div id="sidebar">
+  <div class="span5">  <h5>What is the upper limit?</h5>
+    <p>This value dictates when an Adwords campaign should be paused or enabled. </p>
+    <h5>How often should the app check?</h5>
+    <p>This is the frequency at which the app will check your total scheduled appointments over a specified period      
+       of time.</p>
+    <h5>Example</h5>
+    <p>If the upper limit is set to 25 and the frequency to hourly, the app will check your total scheduled 
+       appointments every hour.  If you had 25 or more scheduled appointments the Adwords campaign would be paused.  
+    </p></div>
+  </div>
+  <div id="main-content">
+    <%= image_tag("/assets/18.3.gif") %>
+    <h1>Manage Your Adwords Campaign</h1>
+    <%= form_tag root_url do %>
+    <h4>Set Upper Limit for Appointments: <%= text_field_tag :name, nil, class: "small" %></h4>
+    <h4>How Often Should the App Check: <%= select_tag "email", options_from_collection_for_select(Frequency.all, 
+        :id, :name, class: "mini") %></h4>
+    <h4>Send Email When Changes Occur? Yes <%= check_box_tag(:send_email, "yes", true) %>
+                                       No <%= check_box_tag(:send_email) %></h4>
+    <%= submit_tag "Update Changes", class: "btn primary" %>
+    <% end %>
+  </div>
+</div>
+
